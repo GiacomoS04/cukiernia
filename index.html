@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Zamówienie w cukierni</title>
+  <link rel="stylesheet" href="wyglad.css">
+</head>
+<body>
+    <header>
+        <p>Witamy w cukierni</p>
+    </header>
+<br><br>
+<main>
+    <div class="form-group">
+    <label for="cake-select">Wybierz ciasto:</label>
+    <select id="cake-select">
+      <option value="sernik">Sernik</option>
+      <option value="ciasto-czekoladowa">Ciasto czekoladowe</option>
+      <option value="tarta-owocowa">Tarta owocowa</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Wybierz owoce (możesz wybrać wiele):</label>
+    <div>
+      <input type="checkbox" name="fruits" value="truskawki">
+      <label>Truskawki</label>
+    </div>
+    <div>
+      <input type="checkbox" name="fruits" value="borówki">
+      <label>Borówki</label>
+    </div>
+    <div>
+      <input type="checkbox" name="fruits" value="maliny">
+      <label>Maliny</label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="beverage-select">Wybierz napój:</label>
+    <select id="beverage-select">
+      <option value="kawa">Kawa</option>
+      <option value="herbata">Herbata</option>
+      <option value="sok">Sok</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <input type="checkbox" id="discount-checkbox">
+    <label for="discount-checkbox">Zastosuj zniżkę</label>
+  </div>
+
+  <div class="form-group">
+    <input type="checkbox" id="vat-checkbox">
+    <label for="vat-checkbox">Zastosuj VAT</label>
+  </div>
+
+  <div class="form-group">
+    <label for="name-input">Imię:</label>
+    <input type="text" id="name-input">
+  </div>
+
+  <div class="form-group">
+    <label for="surname-input">Nazwisko:</label>
+    <input type="text" id="surname-input">
+  </div>
+
+  <div class="form-group">
+    <label for="phone-input">Telefon:</label>
+    <input type="text" id="phone-input">
+  </div>
+
+  <div class="form-group">
+    <label for="email-input">E-mail:</label>
+    <input type="text" id="email-input">
+  </div>
+
+  <div class="form-group">
+    <label for="city-input">Miasto:</label>
+    <input type="text" id="city-input">
+  </div>
+
+  <div class="form-group">
+    <label for="street-input">Ulica:</label>
+    <input type="text" id="street-input">
+  </div>
+
+  <div class="form-group">
+    <label for="house-number-input">Numer mieszkania/domu:</label>
+    <input type="text" id="house-number-input">
+  </div>
+</main>
+ <button id="order-button">Złóż zamówienie</button>
+
+  <div id="order-summary"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var orderButton = document.getElementById("order-button");
+      orderButton.addEventListener("click", function(event) {
+        event.preventDefault();
+        generateOrderSummary();
+      });
+
+      function generateOrderSummary() {
+        var cakeSelect = document.getElementById("cake-select");
+        var selectedCake = cakeSelect.options[cakeSelect.selectedIndex].text;
+
+        var fruitsCheckboxes = document.getElementsByName("fruits");
+        var selectedFruits = [];
+        for (var i = 0; i < fruitsCheckboxes.length; i++) {
+          if (fruitsCheckboxes[i].checked) {
+            selectedFruits.push(fruitsCheckboxes[i].value);
+          }
+        }
+
+        var beverageSelect = document.getElementById("beverage-select");
+        var selectedBeverage = beverageSelect.options[beverageSelect.selectedIndex].text;
+
+        var discountCheckbox = document.getElementById("discount-checkbox");
+        var isDiscountApplied = discountCheckbox.checked;
+
+        var vatCheckbox = document.getElementById("vat-checkbox");
+        var isVatApplied = vatCheckbox.checked;
+
+        var nameInput = document.getElementById("name-input").value;
+        var surnameInput = document.getElementById("surname-input").value;
+        var phoneInput = document.getElementById("phone-input").value;
+        var emailInput = document.getElementById("email-input").value;
+        var cityInput = document.getElementById("city-input").value;
+        var streetInput = document.getElementById("street-input").value;
+        var houseNumberInput = document.getElementById("house-number-input").value;
+
+        var orderSummary = document.getElementById("order-summary");
+        orderSummary.innerHTML = "";
+
+        var summaryText = "<h2>Podsumowanie zamówienia:</h2>";
+        summaryText += "<p><strong>Wybrane ciasto:</strong> " + selectedCake + "</p>";
+        summaryText += "<p><strong>Wybrane owoce:</strong> " + selectedFruits.join(", ") + "</p>";
+        summaryText += "<p><strong>Wybrany napój:</strong> " + selectedBeverage + "</p>";
+        summaryText += "<p><strong>Zastosowana zniżka:</strong> " + (isDiscountApplied ? "Tak" : "Nie") + "</p>";
+        summaryText += "<p><strong>Zastosowany VAT:</strong> " + (isVatApplied ? "Tak" : "Nie") + "</p>";
+        summaryText += "<h3>Dane zamawiającego:</h3>";
+        summaryText += "<p><strong>Imię:</strong> " + nameInput + "</p>";
+        summaryText += "<p><strong>Nazwisko:</strong> " + surnameInput + "</p>";
+        summaryText += "<p><strong>Telefon:</strong> " + phoneInput + "</p>";
+        summaryText += "<p><strong>E-mail:</strong> " + emailInput + "</p>";
+        summaryText += "<p><strong>Adres zamieszkania:</strong></p>";
+        summaryText += "<p>" + cityInput + ", ul. " + streetInput + " " + houseNumberInput + "</p>";
+
+        orderSummary.innerHTML = summaryText;
+      }
+    });
+  </script>
+</body>
+</html>

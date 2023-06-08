@@ -1,0 +1,132 @@
+body {
+    background-image: url("tlo.png");
+    font-family: Arial, sans-serif;
+    color: #333333;
+  }
+  
+  header
+{
+    margin:0;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    font-size: 32px;
+    color: #F0EFF4;
+    font-weight: 300;
+    background-color: #DAB785;
+    border: black solid 3px;
+}
+
+main
+{
+    text-align: left;
+    margin:auto;
+    width: 60%;
+    border: black solid 3px;
+    background-color: #DAB785; 
+    font-size: 22px;
+    color: #000000;
+    font-weight: 200;
+}
+
+  h1 {
+    text-align: center;
+    color: #000000;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  select,
+  input[type="text"],
+  input[type="email"] {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  #order-summary {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    body {
+      background-color: #ffffff;
+    }
+  
+    h1 {
+      color: #333333;
+    }
+  
+    select,
+    input[type="text"],
+    input[type="email"],
+    button {
+      background-color: #f1f1f1;
+    }
+  
+    #order-summary {
+      background-color: #f1f1f1;
+    }
+  
+    #order-summary img {
+      display: block;
+      margin: 0 auto;
+      max-width: 200px;
+      height: auto;
+    }
+  }
+  
+  
+  .form-group:nth-child(odd) {
+    background-color: #FFDDC1;
+  }
+  
+  .form-group:nth-child(even) {
+    background-color: #B9E4C9;
+  }
+  
+  button {
+    background-color: #FF6B6B;
+  }
+  
+  button:hover {
+    background-color: #FF5252;
+  }
+  
+  #order-summary {
+    text-align: left;
+    margin:auto;
+    width: 60%;
+    border: black solid 3px;
+    background-color: #DAB785; 
+    font-size: 22px;
+    color: #000000;
+    font-weight: 200;
+  }
