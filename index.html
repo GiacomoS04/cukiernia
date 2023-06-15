@@ -147,6 +147,38 @@
         summaryText += "<p><strong>Adres zamieszkania:</strong></p>";
         summaryText += "<p>" + cityInput + ", ul. " + streetInput + " " + houseNumberInput + "</p>";
 
+        // Calculate total price
+        var totalPrice = 0;
+        // Add price for selected cake
+        switch (selectedCake) {
+          case "Sernik":
+            totalPrice += 20;
+            break;
+          case "Ciasto czekoladowe":
+            totalPrice += 25;
+            break;
+          case "Tarta owocowa":
+            totalPrice += 30;
+            break;
+        }
+        // Add price for selected fruits
+        totalPrice += selectedFruits.length * 5;
+        // Add price for selected beverage
+        totalPrice += 10;
+
+        // Apply discount if selected
+        if (isDiscountApplied) {
+          totalPrice *= 0.9; // 10% discount
+        }
+
+        // Apply VAT if selected
+        if (isVatApplied) {
+          totalPrice *= 1.23; // 23% VAT
+        }
+
+        summaryText += "<h3>Cena całkowita:</h3>";
+        summaryText += "<p><strong>" + totalPrice.toFixed(2) + " PLN</strong></p>";
+
         orderSummary.innerHTML = summaryText;
       }
     });
