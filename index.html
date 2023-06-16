@@ -147,9 +147,8 @@
         summaryText += "<p><strong>Adres zamieszkania:</strong></p>";
         summaryText += "<p>" + cityInput + ", ul. " + streetInput + " " + houseNumberInput + "</p>";
 
-        // Calculate total price
+       
         var totalPrice = 0;
-        // Add price for selected cake
         switch (selectedCake) {
           case "Sernik":
             totalPrice += 20;
@@ -161,19 +160,18 @@
             totalPrice += 30;
             break;
         }
-        // Add price for selected fruits
+        
         totalPrice += selectedFruits.length * 5;
-        // Add price for selected beverage
         totalPrice += 10;
 
-        // Apply discount if selected
+        
         if (isDiscountApplied) {
-          totalPrice *= 0.9; // 10% discount
+          totalPrice *= 0.9;
         }
 
-        // Apply VAT if selected
+        
         if (isVatApplied) {
-          totalPrice *= 1.23; // 23% VAT
+          totalPrice *= 1.23;
         }
 
         summaryText += "<h3>Cena całkowita:</h3>";
